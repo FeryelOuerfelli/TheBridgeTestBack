@@ -11,6 +11,7 @@ const app = express();
 const server = require('http').createServer(app);
 
 const courseRouter = require('./src/routes/courseRoutes');
+const contactRouter = require('./src/routes/contactRoutes');
 
 var corsOptions = {
   origin: 'http://localhost:5173',  
@@ -32,6 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/courses', courseRouter);
+app.use('/contact', contactRouter);
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
